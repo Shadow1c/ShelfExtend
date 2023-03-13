@@ -22,7 +22,9 @@ namespace ShelfExtend.MenuLogic.LessonMenuLogic
             List<SchoolSubjects>? schoolSubjects = PostgresConnection.GetListFromDB<SchoolSubjects>(Sqlstringgetsubjects);
             if (schoolSubjects == null || schoolSubjects.Count == 0)
             {
+                Console.Clear();
                 Console.WriteLine("Brak Listy przedmiotów na serwerze. Wciśnij dowolny klawisz by kontynuować.");
+                Console.ReadKey();
                 return;
             }
 

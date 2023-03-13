@@ -98,13 +98,13 @@ namespace ShelfExtend.MenuLogic.AdministrationMenuLogic
                 catch
                 {
                     Console.Clear();
-                    Console.WriteLine("Nie udało się zminić praw");
+                    Console.WriteLine("Nie udało się zminić praw. Wciśnij dowolny klawisz by kontynuować");
                     Console.ReadKey();
                     Console.Clear();
                     return;
                 }
                 Console.Clear();
-                Console.WriteLine("Zmieniono prawa dostępu na użytkownik");
+                Console.WriteLine("Zmieniono prawa dostępu na użytkownik. Wciśnij dowolny klawisz by kontynuować");
                 if (_user.User_id == PickedUser.User_id)
                 {
                     _user.Levelofaccess = UserType.User;
