@@ -44,7 +44,7 @@ namespace ShelfExtend.MenuLogic
                 if (!isValidInput)
                 {
                     Console.Clear();
-                    Console.WriteLine("Wpisana wartość nieprawidłowa, wciśnij dowolny klawisz by kontynuować...");
+                    Console.WriteLine("Wpisana wartość jest nieprawidłowa, wciśnij dowolny klawisz by kontynuować...");
                     Console.ReadKey();
                     continue;
                 }
