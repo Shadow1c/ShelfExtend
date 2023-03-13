@@ -99,7 +99,7 @@ namespace ShelfExtend.MenuLogic.AdministrationMenuLogic
                 {
                     Console.Clear();
                     Console.WriteLine("Nie udało się zminić praw");
-                    Console.ReadLine();
+                    Console.ReadKey();
                     Console.Clear();
                     return;
                 }
@@ -109,7 +109,7 @@ namespace ShelfExtend.MenuLogic.AdministrationMenuLogic
                 {
                     _user.Levelofaccess = UserType.User;
                 }
-                Console.ReadLine();
+                Console.ReadKey();
             }
         }
     }

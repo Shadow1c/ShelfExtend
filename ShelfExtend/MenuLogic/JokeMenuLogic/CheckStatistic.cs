@@ -34,7 +34,7 @@ namespace ShelfExtend.MenuLogic.JokeMenuLogic
                 Console.WriteLine($"{city.city} = {city.readjokecount}");
             }
             Console.WriteLine("Wciśnij dowolny klawisz by kontynuować.");
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }

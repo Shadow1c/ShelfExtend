@@ -39,8 +39,8 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 Console.Clear();
                 Console.WriteLine("Wypełnij formularz lub wpisz teraz 0 by anulować .");
                 Console.WriteLine("Podaj login nowego użytkownika");
-                string? inputLogin = Console.ReadLine().ToLower();
 
+                string? inputLogin = Console.ReadLine().ToLower();
                 if (string.Equals(0, inputLogin)) 
                 {
                     return;
@@ -188,6 +188,7 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 Console.WriteLine($"{list.Location_id} to {list.City}");
             }
         }
+
         private void SendFormula(User currentUser)
         {
             using (var RegistrationConnection = PostgresConnection.EstablishConnection())
@@ -209,6 +210,7 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 return;
             }
         }
+
         private bool isCityTakenFromDB()
         {
             using (var RegistrationConnection = PostgresConnection.EstablishConnection())
@@ -225,6 +227,7 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 return true;
             }
         }
+
         private bool isListContainsInput(int input)
         {
             foreach (var list in Location.All)
