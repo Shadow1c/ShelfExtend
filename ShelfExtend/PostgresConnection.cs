@@ -45,14 +45,8 @@ namespace ShelfExtend
                 }
                 catch
                 {
-                    Console.Clear();
-                    Console.WriteLine("Nie udało się wykonac zawołnia. Naciśnij dowolny klawisz by kontynuować.");
-                    Console.ReadKey();
                     return false;
                 }
-                Console.Clear();
-                Console.WriteLine("Zapis powiodł się. Naciśnij dowolny klawisz by kontynuować.");
-                Console.ReadKey();
                 return true;
             }
         }

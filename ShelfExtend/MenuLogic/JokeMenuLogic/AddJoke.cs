@@ -93,7 +93,7 @@ namespace ShelfExtend.MenuLogic.JokeMenuLogic
                     Console.Clear();
                     Console.WriteLine("Wprowadzono nieprawidłową wartość. Wciśnij dowolny klawisz by kontynuować.");
                     Console.ReadKey();
-                    break;
+                    continue;
                 }
 
                 switch (userConformationInput)

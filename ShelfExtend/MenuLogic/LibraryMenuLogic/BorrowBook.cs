@@ -60,7 +60,7 @@ namespace ShelfExtend.MenuLogic.LibraryMenuLogic
             {
                 Console.Clear();
                 Console.WriteLine("Ksiązkę którą chcesz wypożyczyć to:");
-                Console.WriteLine($"{pickedBook.bookname} jej rodzaj to {pickedBook.book_type}");
+                Console.WriteLine($"{pickedBook.bookname}");
                 Console.WriteLine("0. Anuluj");
                 Console.WriteLine("1. Potwierdzenie wypożyczenia");
 
@@ -71,10 +71,10 @@ namespace ShelfExtend.MenuLogic.LibraryMenuLogic
                     Console.Clear();
                     Console.WriteLine("Wprowadzono nieprawidłową wartość. Wciśnij dowolny klaiwsz by kontynuować.");
                     Console.ReadKey();
-                    break;
+                    continue;
                 }
 
-                switch (userInput)
+                switch (userInputInt)
                 {
                     case 0:
                         return;
@@ -91,7 +91,18 @@ namespace ShelfExtend.MenuLogic.LibraryMenuLogic
 
             //set query
             string sqlStringTakeBook = $"UPDATE BookShelf SET user_id = {_user.User_id}, borrow_date = '{currentTime}' WHERE book_id = {pickedBook.book_id};";
-            PostgresConnection.isExecutSqlString(sqlStringTakeBook);
+            if (!PostgresConnection.isExecutSqlString(sqlStringTakeBook))
+            {
+                Console.Clear();
+                Console.WriteLine("Wystąpił błąd podczas wypożyczenia ksiązki. Wciśnij dowolny przycisk by kontynuować.");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Udało się wypożyczyć ksiązkę. Wciśnij dowolny klawisz by kontynuować.");
+                Console.ReadKey();
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ShelfExtend.MenuLogic.AdministrationMenuLogic
         private const string _password = "admin";
         public BecomeAdmin(User user, UserType userType = UserType.None, TeachingLevel teachingLevel = TeachingLevel.None) : base(user, userType, teachingLevel)
         {
-            Name = "Zostań administratorem";
+            Name = "Wpisz hasło administratora";
             UserType = UserType.User;
         }
 

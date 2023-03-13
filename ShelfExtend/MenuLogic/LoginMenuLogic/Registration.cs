@@ -41,7 +41,7 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 Console.WriteLine("Podaj login nowego użytkownika");
 
                 string? inputLogin = Console.ReadLine().ToLower();
-                if (string.Equals(0, inputLogin)) 
+                if (string.Equals("0", inputLogin)) 
                 {
                     return;
                 }
@@ -53,7 +53,7 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                     continue;
                 }
                 //Check if login is not already taken
-                string checkValidLogin = $"SELECT * FROM Users WHERE Users.Name = '{inputLogin}';";
+                string checkValidLogin = $"SELECT * FROM Users WHERE Users.Login = '{inputLogin}';";
                 if (PostgresConnection.GetListFromDB<User>(checkValidLogin).Count() != 0)
                 {
                     Console.Clear();
