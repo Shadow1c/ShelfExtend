@@ -93,6 +93,7 @@ namespace ShelfExtend.MenuLogic
                 bool isValidInput = int.TryParse(Console.ReadLine(), out userValueNumber);
                 if (!isValidInput) 
                 {
+                    Console.Clear();
                     Console.WriteLine("Wprawdziłeś złą wartość. Wciśnij dowlny klawisz by kontynuować.");
                     Console.ReadKey();
                 }

@@ -19,11 +19,13 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
             Console.WriteLine("Podaj swój login.");
             string? inputLogin = Console.ReadLine();
 
+            Console.Clear();
             Console.WriteLine("Podaj swoje hasło");
             string? inputPassword = Console.ReadLine();
 
             if (string.IsNullOrEmpty(inputLogin) || string.IsNullOrEmpty(inputPassword))
             {
+                Console.Clear();
                 Console.WriteLine("Wpisana wartość nie prawidłowa. Wcisnij dowolny klawisz by kontynuować.");
                 Console.ReadKey();
                 currentUser = null;

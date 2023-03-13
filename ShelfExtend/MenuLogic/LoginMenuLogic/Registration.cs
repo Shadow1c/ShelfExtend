@@ -47,44 +47,53 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 }
                 if (string.IsNullOrEmpty(inputLogin) || !inputLogin.isStringLengthCorrect(40))
                 {
+                    Console.Clear();
                     Console.WriteLine("Wpisana wartość jest nieprawidłowa. Wcisnij dowolny klawisz by kontynuować");
                     Console.ReadKey();
                     continue;
                 }
 
+                Console.Clear();
                 Console.WriteLine("Podaj hasło");
                 string? inputPassword = Console.ReadLine();
                 if (string.IsNullOrEmpty(inputPassword) || !inputPassword.isStringLengthCorrect(40))
                 {
+                    Console.Clear();
                     Console.WriteLine("Nieprawidłowa wpisana wartość. Wcisnij dowolny klawisz by kontynuować");
                     Console.ReadKey();
                     continue;
                 }
 
+                Console.Clear();
                 Console.WriteLine("Podaj Imię");
                 string? inputName = Console.ReadLine();
                 if (string.IsNullOrEmpty(inputName) || !inputName.isStringLengthCorrect(40))
                 {
+                    Console.Clear();
                     Console.WriteLine("Nieprawidłowa wpisana wartość. Wcisnij dowolny klawisz by kontynuować");
                     Console.ReadKey();
                     continue;
                 }
 
+                Console.Clear();
                 Console.WriteLine("Podaj Nazwisko");
                 string? inputSurname = Console.ReadLine();
                 if (string.IsNullOrEmpty(inputSurname) || !inputSurname.isStringLengthCorrect(40))
                 {
+                    Console.Clear();
                     Console.WriteLine("Nieprawidłowa wpisana wartość. Wcisnij dowolny klawisz by kontynuować");
                     Console.ReadKey();
                     continue;
                 }
 
+                Console.Clear();
                 Console.WriteLine("Wpisz 1 jeżeli jesteś uczniem ,2 jeżeli jesteś nauczycielem");
                 string? inputStatus = Console.ReadLine();
                 TeachingLevel StatusConverted;
                 bool isEnum = Enum.TryParse<TeachingLevel>(inputStatus, out StatusConverted);
                 if (!isEnum) 
                 {
+                    Console.Clear();
                     Console.WriteLine("Nieprawidłowa wpisana wartość. Wcisnij dowolny klawisz by kontynuować");
                     Console.ReadKey();
                     continue; 
@@ -92,11 +101,13 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
 
                 if (!isCityTakenFromDB() || Location.All.Count == 0)
                 {
+                    Console.Clear();
                     Console.WriteLine("Błąd Połączenia lub lista miast pusta ,skontaktuj się z administrotorem sieci. Wcisnij dowolny klawisz by kontynuować.");
                     Console.ReadKey();
                     return;
                 }
 
+                Console.Clear();
                 PrintOutCities();
 
                 string? inputLocation = Console.ReadLine();
@@ -104,12 +115,14 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 bool isNumber = int.TryParse(inputLocation, out Locationint);
                 if (!isNumber)
                 {
+                    Console.Clear();
                     Console.WriteLine("Nieprawidłowy numer miasta. Wcisnij dowolny klawisz by kontynuować");
                     Console.ReadKey();
                     continue;
                 }
                 if (!isListContainsInput(Locationint))
                 {
+                    Console.Clear();
                     Console.WriteLine("Brak miasta w bazie. Wciśnij dowolny klawisz by kontynuować.");
                     Console.ReadKey();
                     continue;
@@ -118,6 +131,10 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
 
                 Console.Clear();
                 Console.WriteLine("Sprawdz czy wprowadzone dane zgadzają się");
+                Console.WriteLine("0. Anuluj wprowadzanie.");
+                Console.WriteLine("1. Potwierdzam poprawność danych.");
+                Console.WriteLine("2. Wprowadz dane jeszcze raz.");
+                Console.WriteLine();
                 Console.WriteLine($"Login: {User.Login}");
                 Console.WriteLine($"Hasło: {User.Password}");
                 Console.WriteLine($"Imię: {User.Name}");
@@ -125,9 +142,7 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 Console.WriteLine($"Status Szkolny: {User.Learningstatus}");
                 Console.WriteLine($"Miasto: {Location.All[Locationint-1].City}");
 
-                Console.WriteLine("0. Anuluj wprowadzanie.");
-                Console.WriteLine("1. Potwierdzam poprawność danych.");
-                Console.WriteLine("2. Wprowadz dane jeszcze raz.");
+                
 
                 int userConformationInput;
                 bool isValidConformation = int.TryParse(Console.ReadLine(),out userConformationInput);
