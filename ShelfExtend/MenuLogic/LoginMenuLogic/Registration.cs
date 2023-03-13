@@ -37,11 +37,17 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 //DB check if user login is already taken
                 //if its free write user to DB and return true
                 Console.Clear();
+                Console.WriteLine("Wypełnij formularz lub wpisz teraz 0 by anulować .");
                 Console.WriteLine("Podaj login nowego użytkownika");
                 string? inputLogin = Console.ReadLine();
+
+                if (string.Equals(0, inputLogin)) 
+                {
+                    return;
+                }
                 if (string.IsNullOrEmpty(inputLogin) || !inputLogin.isStringLengthCorrect(40))
                 {
-                    Console.WriteLine("Nieprawidłowa wpisana wartość. Wcisnij dowolny klawisz by kontynuować");
+                    Console.WriteLine("Wpisana wartość jest nieprawidłowa. Wcisnij dowolny klawisz by kontynuować");
                     Console.ReadKey();
                     continue;
                 }
