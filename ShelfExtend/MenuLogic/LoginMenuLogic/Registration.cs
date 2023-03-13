@@ -54,7 +54,7 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 }
                 //Check if login is not already taken
                 string checkValidLogin = $"SELECT * FROM Users WHERE Users.Name = '{inputLogin}';";
-                if (PostgresConnection.GetListFromDB<User>(checkValidLogin) != null)
+                if (PostgresConnection.GetListFromDB<User>(checkValidLogin).Count() != 0)
                 {
                     Console.Clear();
                     Console.WriteLine("Login użytkownika jest już zajęty. Wciśnij dowolny klawisz by kontynuować");
