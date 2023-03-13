@@ -39,7 +39,7 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 Console.Clear();
                 Console.WriteLine("Wypełnij formularz lub wpisz teraz 0 by anulować .");
                 Console.WriteLine("Podaj login nowego użytkownika");
-                string? inputLogin = Console.ReadLine();
+                string? inputLogin = Console.ReadLine().ToLower();
 
                 if (string.Equals(0, inputLogin)) 
                 {
@@ -49,6 +49,15 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
                 {
                     Console.Clear();
                     Console.WriteLine("Wpisana wartość jest nieprawidłowa. Wcisnij dowolny klawisz by kontynuować");
+                    Console.ReadKey();
+                    continue;
+                }
+                //Check if login is not already taken
+                string checkValidLogin = $"SELECT * FROM Users WHERE Users.Name = '{inputLogin}';";
+                if (PostgresConnection.GetListFromDB<User>(checkValidLogin) != null)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Login użytkownika jest już zajęty. Wciśnij dowolny klawisz by kontynuować");
                     Console.ReadKey();
                     continue;
                 }

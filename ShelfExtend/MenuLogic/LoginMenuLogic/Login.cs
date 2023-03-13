@@ -17,7 +17,7 @@ namespace ShelfExtend.MenuLogic.LoginMenuLogic
 
             //Take user login and password
             Console.WriteLine("Podaj swój login.");
-            string? inputLogin = Console.ReadLine();
+            string? inputLogin = Console.ReadLine().ToLower();
 
             Console.Clear();
             Console.WriteLine("Podaj swoje hasło");
