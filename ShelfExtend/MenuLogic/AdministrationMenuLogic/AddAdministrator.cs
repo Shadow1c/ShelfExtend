@@ -38,6 +38,15 @@ namespace ShelfExtend.MenuLogic.AdministrationMenuLogic
             }
 
             bool isValid = int.TryParse(Console.ReadLine(), out int userInputInt);
+
+            
+            if (!isValid)
+            {
+                Console.Clear();
+                Console.WriteLine("Wpisana wartość nie poprawna. Wciśnij dowolny klawisz by kontynuować");
+                Console.ReadKey();
+                return;
+            }
             if (ListUsers.Count < userInputInt || userInputInt < 0)
             {
                 Console.Clear();

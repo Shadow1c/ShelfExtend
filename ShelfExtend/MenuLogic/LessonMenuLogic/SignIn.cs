@@ -116,6 +116,13 @@ namespace ShelfExtend.MenuLogic.LessonMenuLogic
                 int userInputConformation;
                 bool isConfirmed = int.TryParse(Console.ReadLine(), out userInputConformation);
 
+                if (!isConfirmed) 
+                {
+                    Console.Clear();
+                    Console.WriteLine("Wpisana wartość nie poprawna. Wciśnij dowolny klawisz by kontynuować");
+                    Console.ReadKey();
+                    continue;
+                }
                 switch (userInputConformation) 
                 {
                     case 0:

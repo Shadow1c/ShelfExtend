@@ -30,7 +30,7 @@ namespace ShelfExtend.MenuLogic.LessonMenuLogic
                 if (!isValid) 
                 {
                     Console.Clear();
-                    Console.WriteLine("Wpisano niepoprawną wartośc. Wciśnij dowolny klawisz by kontynuować.");
+                    Console.WriteLine("Wpisano niepoprawną wartość. Wciśnij dowolny klawisz by kontynuować.");
                     Console.ReadKey();
                     continue;
                 }
